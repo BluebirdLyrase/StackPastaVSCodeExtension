@@ -2,29 +2,36 @@ import { StackExchangeConnecter } from './StackExchangeConnecter';
 
 export class SearchResult extends StackExchangeConnecter {
 
-    public get getTitleList(): string[] {
-        return this.titleList;
-    }
-
-    public get getQuestionIdList(): string[] {
-        return this.questionIdList;
-    }
-
-    public get IshaveResult(): boolean {
+    public get $haveResult(): boolean {
         return this.haveResult;
     }
 
-    public get getSite(): string {
+    public get $site(): string {
         return this.site;
     }
 
 
-    private titleList: string[] = new Array;
-    private questionIdList: string[] = new Array;
-    private item: string[] = new Array;
+    /**
+     * Getter $lenght
+     * @return {number }
+     */
+	public get $lenght(): number  {
+		return this.lenght;
+	}
+
+
+    /**
+     * Getter $json
+     * @return {any}
+     */
+	public get $items(): any[] {
+		return this.items;
+	}
+
     private haveResult: boolean = false;
     private lenght: number = 0;
     private json: any;
+    private items: any[];
 
 
 
@@ -67,16 +74,8 @@ export class SearchResult extends StackExchangeConnecter {
        
         this.lenght = Object.keys(this.json.items).length;
         console.log("lenght = " + this.lenght);
-        
-        for (let i = 0; i < this.lenght ; i++) {
-             this.titleList.push(this.json.items[i].title)
-             this.questionIdList.push(this.json.items[i].question_id)
-          }
-          console.log(this.json.items);
-        if(this.lenght == 0){
-            this.haveResult = false;
-        }else{
-            this.haveResult = true;
-        }
+
+        this.items = this.json.items;
+
     }
 }
