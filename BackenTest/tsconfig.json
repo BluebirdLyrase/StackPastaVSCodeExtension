@@ -5,6 +5,6 @@
     "outDir": "compiled/",
     "module" : "commonjs"
     },
-    "include": ["Tester/"],
+    "include": ["Tester/", "dataClassTest.ts"],
     //     "include": ["src/", "Tester/testStackExchangeConnector.ts","Tester/"]
 }

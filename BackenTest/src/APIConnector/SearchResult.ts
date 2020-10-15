@@ -2,19 +2,19 @@ import { StackExchangeConnecter } from './StackExchangeConnecter';
 
 export class SearchResult extends StackExchangeConnecter {
 
-    public get getTitleList(): string[] {
+    public get $titleList(): string[] {
         return this.titleList;
     }
 
-    public get getQuestionIdList(): string[] {
+    public get $questionIdList(): string[] {
         return this.questionIdList;
     }
 
-    public get IshaveResult(): boolean {
+    public get $haveResult(): boolean {
         return this.haveResult;
     }
 
-    public get getSite(): string {
+    public get $site(): string {
         return this.site;
     }
 

@@ -17,6 +17,8 @@ class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
         this.titleList = new Array;
         this.questionIdList = new Array;
         this.item = new Array;
+        this.haveResult = false;
+        this.lenght = 0;
         this.intitle = $intitle;
         this.page = $page;
         this.pageSize = $pageSize;
@@ -26,16 +28,16 @@ class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
         this.tagged = $tagged;
         // this.createJson();
     }
-    get getTitleList() {
+    get $titleList() {
         return this.titleList;
     }
-    get getQuestionIdList() {
+    get $questionIdList() {
         return this.questionIdList;
     }
-    get IshaveResult() {
+    get $haveResult() {
         return this.haveResult;
     }
-    get getSite() {
+    get $site() {
         return this.site;
     }
     createJson() {
@@ -43,7 +45,7 @@ class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
             let tagContent;
             let url;
             this.site = this.site;
-            if (this.tagged = null) {
+            if (this.tagged = "") {
                 tagContent = "";
             }
             else {

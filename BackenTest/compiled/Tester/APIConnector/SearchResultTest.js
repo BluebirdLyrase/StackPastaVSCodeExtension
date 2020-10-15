@@ -12,12 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const SearchResult_1 = require("../../src/APIConnector/SearchResult");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        let x = new SearchResult_1.SearchResult("akdpsadaskdoaksakko", 1, 40, "asc", "relevance", "stackoverflow", null);
+        let x = new SearchResult_1.SearchResult("Eclipse", 1, 40, "asc", "relevance", "stackoverflow", "");
         yield x.createJson();
-        let z = x.getTitleList;
+        let z = x.$titleList;
         console.log(z);
         console.log(z[3]);
-        console.log(x.IshaveResult);
+        console.log(x.$haveResult);
     });
 }
 run();
