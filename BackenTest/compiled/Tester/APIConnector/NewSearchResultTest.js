@@ -9,15 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const OldSearchResult_1 = require("../../src/APIConnector/OldSearchResult");
+const SearchResult_1 = require("../../src/APIConnector/SearchResult");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        let x = new OldSearchResult_1.SearchResult("Eclipse", 1, 40, "asc", "relevance", "stackoverflow", "");
+        let x = new SearchResult_1.SearchResult("Eclipse", 1, 40, "asc", "relevance", "stackoverflow", "");
         yield x.createJson();
-        let z = x.$titleList;
-        console.log(z);
-        console.log(z[3]);
-        console.log(x.$haveResult);
+        let z = x.$items;
+        for (let i = 0; i < x.$lenght; i++) {
+            console.log("title : " + z[i].title);
+            console.log("ID : " + z[i].question_id);
+        }
     });
 }
 run();

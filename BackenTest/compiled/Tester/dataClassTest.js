@@ -30,6 +30,8 @@ function run() {
         AAA.push(Ans2);
         let Q = new StackQuestion_1.StackQuestion("123", "Qtitle", "Qbodayyyy", AAC, AAA, true, true, "Qowner", "QownerImage", 23, null, false, "site");
         console.log(Q);
+        console.log("----------------------------");
+        console.log(Q.$answer[0].$comment[0].$body);
     });
 }
 run();

@@ -2,6 +2,14 @@ import { StackExchangeConnecter } from './StackExchangeConnecter';
 
 export class SearchResult extends StackExchangeConnecter {
 
+    public get $titleList(): string[] {
+        return this.titleList;
+    }
+
+    public get $questionIdList(): string[] {
+        return this.questionIdList;
+    }
+
     public get $haveResult(): boolean {
         return this.haveResult;
     }
@@ -11,27 +19,12 @@ export class SearchResult extends StackExchangeConnecter {
     }
 
 
-    /**
-     * Getter $lenght
-     * @return {number }
-     */
-	public get $lenght(): number  {
-		return this.lenght;
-	}
-
-
-    /**
-     * Getter $json
-     * @return {any}
-     */
-	public get $items(): any[] {
-		return this.items;
-	}
-
+    private titleList: string[] = new Array;
+    private questionIdList: string[] = new Array;
+    private item: string[] = new Array;
     private haveResult: boolean = false;
     private lenght: number = 0;
     private json: any;
-    private items: any[];
 
 
 
@@ -74,8 +67,16 @@ export class SearchResult extends StackExchangeConnecter {
        
         this.lenght = Object.keys(this.json.items).length;
         console.log("lenght = " + this.lenght);
-
-        this.items = this.json.items;
-
+        
+        for (let i = 0; i < this.lenght ; i++) {
+             this.titleList.push(this.json.items[i].title)
+             this.questionIdList.push(this.json.items[i].question_id)
+          }
+          console.log(this.json.items);
+        if(this.lenght == 0){
+            this.haveResult = false;
+        }else{
+            this.haveResult = true;
+        }
     }
 }

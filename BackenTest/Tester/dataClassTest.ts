@@ -25,7 +25,8 @@ async function run() {
     let Q = new StackQuestion("123","Qtitle","Qbodayyyy",AAC,AAA,true,true,"Qowner","QownerImage",23,null,false,"site");
 
     console.log(Q);
-
+    console.log("----------------------------")
+    console.log(Q.$answer[0].$comment[0].$body)
 }
 
 run();

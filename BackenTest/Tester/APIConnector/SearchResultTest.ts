@@ -1,4 +1,4 @@
-import {SearchResult} from '../../src/APIConnector/SearchResult';
+import {SearchResult} from '../../src/APIConnector/OldSearchResult';
 
 async function run() {
 let x = new SearchResult("Eclipse",1,40,"asc", "relevance", "stackoverflow","");
