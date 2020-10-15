@@ -1,0 +1,155 @@
+{
+    "items":[
+       {
+          "answer_count":2,
+          "question_id":33548305,
+          "title":"Why does eclipse say that null is a primitive type?"
+       },
+       {
+          "answer_count":3,
+          "question_id":2926854,
+          "title":"Eclipse bug? Switching on a null with only default case"
+       },
+       {
+          "answer_count":2,
+          "question_id":40235469,
+          "title":"Potential null pointer access in Eclipse - seemingly trivial example"
+       },
+       {
+          "answer_count":3,
+          "question_id":43611344,
+          "title":"How can I annotate my helper method so Eclipse knows its argument is non null if it returns true?"
+       },
+       {
+          "answer_count":1,
+          "question_id":22949459,
+          "title":"How can I pass null arguments to my Java main method using run configuration arguments in Eclipse?"
+       },
+       {
+          "answer_count":1,
+          "question_id":29821517,
+          "title":"Null annotation processor in Eclipse"
+       },
+       {
+          "answer_count":1,
+          "question_id":23757376,
+          "title":"Why Eclipse null analysis ignore null-checking statement: if (someObject != null) {...}, when someObject is a field-scope variable?"
+       },
+       {
+          "answer_count":1,
+          "question_id":3499910,
+          "title":"NullPointerException error"
+       },
+       {
+          "answer_count":1,
+          "question_id":62472658,
+          "title":"How to fix &quot;Unsafe interpretation of method return type&quot; in Eclipse null annotation analysis"
+       },
+       {
+          "answer_count":4,
+          "question_id":3446002,
+          "title":"What&#39;s wrong with my code?"
+       },
+       {
+          "answer_count":1,
+          "question_id":49893910,
+          "title":"Why do I have a null pointer dereference in C++?"
+       },
+       {
+          "answer_count":1,
+          "question_id":10872345,
+          "title":"My Eclipse program dosn&#39;t recognize `NULL`"
+       },
+       {
+          "answer_count":2,
+          "question_id":28622063,
+          "title":"Null pointer access: The variable nodeptr can only be null at this location"
+       },
+       {
+          "answer_count":1,
+          "question_id":24832398,
+          "title":"getResourceAsStream returns null?"
+       },
+       {
+          "answer_count":3,
+          "question_id":3000177,
+          "title":"Compilers behave differently with a null parameter of a generic method"
+       },
+       {
+          "answer_count":3,
+          "question_id":17449887,
+          "title":"Why stringbuilder stops adding elements after using the null character?"
+       },
+       {
+          "answer_count":1,
+          "question_id":37681625,
+          "title":"Creating a method reference on a null-reference does not throw an exception"
+       },
+       {
+          "answer_count":1,
+          "question_id":16241983,
+          "title":"Eclipse null analysis: The expression of type int needs unchecked conversion to conform to &#39;@Nonnull Integer&#39;"
+       },
+       {
+          "answer_count":3,
+          "question_id":7586872,
+          "title":"Why does the Eclipse Java compiler check casts from null?"
+       },
+       {
+          "answer_count":2,
+          "question_id":23449470,
+          "title":"Can&#39;t retrieve view with findViewById"
+       },
+       {
+          "answer_count":1,
+          "question_id":32617682,
+          "title":"Eclipse external null annotation for java.lang.Object#getClass()"
+       },
+       {
+          "answer_count":2,
+          "question_id":48914806,
+          "title":"Validated variable null warning"
+       },
+       {
+          "answer_count":1,
+          "question_id":32642992,
+          "title":"Eclipse null analysis issues null type safety warning for class literal"
+       },
+       {
+          "answer_count":1,
+          "question_id":13423256,
+          "title":"Why Console in Eclipse or IntelliJ always null?"
+       },
+       {
+          "answer_count":2,
+          "question_id":27995685,
+          "title":"Error when trying to compare instance of a class with a variable type"
+       },
+       {
+          "answer_count":1,
+          "question_id":40727401,
+          "title":"@NonNullByDefault The return type is incompatible with &#39;List&lt;Runnable&gt;&#39; returned from ExecutorService.shutdownNow() (mismatching null constraints)"
+       },
+       {
+          "answer_count":1,
+          "question_id":24673909,
+          "title":"eclipse null analysis field initialization"
+       },
+       {
+          "answer_count":1,
+          "question_id":21842864,
+          "title":"Null Pointer Exception Error on a Constructor"
+       },
+       {
+          "answer_count":1,
+          "question_id":20061775,
+          "title":"Eclipse warning: Cannot be null?"
+       },
+       "question_id":16082143,
+       "title":"How do I fix my scanner input that is null?"
+    }
+ ],
+ "has_more":false,
+ "quota_max":300,
+ "quota_remaining":271
+ }
