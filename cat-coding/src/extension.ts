@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import {SearchResult} from './APIConnector/SearchResult';
+import {AllContent} from './APIConnector/AllContent';
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
@@ -21,11 +22,12 @@ export function activate(context: vscode.ExtensionContext) {
 }
 
 async function getWebviewContent() {
-  let x = new SearchResult("Eclipse",1,40,"asc", "relevance", "stackoverflow","");
-await x.createJson();
-let z = x.getTitleList;
-console.log(z);
-console.log(z[3]);
+//   let x = new SearchResult("Eclipse",1,40,"asc", "relevance", "stackoverflow","");
+// await x.createJson();
+// let x = new AllContent("64352962", false, "stackoverflow");1678122
+let x = new AllContent("1678122", false, "stackoverflow");
+await x.creatJson();
+var qustion = x.$items;
 	return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -34,8 +36,10 @@ console.log(z[3]);
 	  <title>Cat Coding</title>
   </head>
   <body>
-	  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />
-	  พ่อมองขึ้นมาจะเสียใจแค่ไหน `+z+`
+`+qustion.body+`
   </body>
   </html>`;
   }
+
+  // <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />
+  // พ่อมองขึ้นมาจะเสียใจแค่ไหน 

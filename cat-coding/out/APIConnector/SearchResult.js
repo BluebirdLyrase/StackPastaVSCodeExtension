@@ -1,20 +1,19 @@
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SearchResult = void 0;
 const StackExchangeConnecter_1 = require("./StackExchangeConnecter");
 class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
     constructor($intitle, $page, $pageSize, $order, $sort, $site, $tagged) {
         super();
-        this.titleList = new Array;
-        this.questionIdList = new Array;
-        this.item = new Array;
         this.haveResult = false;
         this.lenght = 0;
         this.intitle = $intitle;
@@ -26,17 +25,25 @@ class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
         this.tagged = $tagged;
         // this.createJson();
     }
-    get getTitleList() {
-        return this.titleList;
-    }
-    get getQuestionIdList() {
-        return this.questionIdList;
-    }
-    get IshaveResult() {
+    get $haveResult() {
         return this.haveResult;
     }
-    get getSite() {
+    get $site() {
         return this.site;
+    }
+    /**
+     * Getter $lenght
+     * @return {number }
+     */
+    get $lenght() {
+        return this.lenght;
+    }
+    /**
+     * Getter $json
+     * @return {any}
+     */
+    get $items() {
+        return this.items;
     }
     createJson() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -56,17 +63,7 @@ class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
             this.json = yield this.readJsonFromUrl(newUrl);
             this.lenght = Object.keys(this.json.items).length;
             console.log("lenght = " + this.lenght);
-            for (let i = 0; i < this.lenght; i++) {
-                this.titleList.push(this.json.items[i].title);
-                this.questionIdList.push(this.json.items[i].question_id);
-            }
-            console.log(this.json.items);
-            if (this.lenght == 0) {
-                this.haveResult = false;
-            }
-            else {
-                this.haveResult = true;
-            }
+            this.items = this.json.items;
         });
     }
 }
