@@ -23,11 +23,21 @@ exports.GetQuestionList = GetQuestionList;
 function getWebviewContent() {
     return __awaiter(this, void 0, void 0, function* () {
         let x = new SearchResult_1.SearchResult("Eclipse", 1, 40, "asc", "relevance", "stackoverflow", "");
+        yield x.createJson();
+        let z = x.$items;
+        var questionList = new Array;
+        var strQlist = "";
         // await x.createJson();
         // let x = new AllContent("64352962", false, "stackoverflow");1678122
         // let x = new AllContent("1678122", false, "stackoverflow");
         //await x.creatJson();
         //var qustion = x.$items;
+        for (let i = 0; i < x.$lenght; i++) {
+            console.log("title : " + z[i].title);
+            console.log("ID : " + z[i].question_id);
+            strQlist = questionList[i].concat(z[i].title);
+            console.log(strQlist);
+        }
         return `<!DOCTYPE html>
       <html lang="en">
       <head>
@@ -36,7 +46,8 @@ function getWebviewContent() {
         <title>Cat Coding</title>
       </head>
       <body>
-    ` + x + `
+      fsd[pfksadgkfa[g]]fdsgsdgvdsgvdszv
+    ` + strQlist + `
       </body>
       </html>`;
     });

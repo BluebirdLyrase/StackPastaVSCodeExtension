@@ -16,6 +16,7 @@ class SearchResult extends StackExchangeConnecter_1.StackExchangeConnecter {
         super();
         this.haveResult = false;
         this.lenght = 0;
+        this.items = [];
         this.intitle = $intitle;
         this.page = $page;
         this.pageSize = $pageSize;

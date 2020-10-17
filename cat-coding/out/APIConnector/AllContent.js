@@ -14,6 +14,11 @@ const StackExchangeConnecter_1 = require("./StackExchangeConnecter");
 class AllContent extends StackExchangeConnecter_1.StackExchangeConnecter {
     constructor($question_id, $isOffline, $site) {
         super();
+        this.haveTags = false;
+        this.haveComment = false;
+        // private haveOwnerImage:boolean;
+        // private haveOwnerImage:boolean;
+        this.haveAnswer = false;
         // private haveOwner:boolean;
         this.haveAComment = new Array;
         this.question_id = $question_id;

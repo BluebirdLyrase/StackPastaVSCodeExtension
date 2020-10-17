@@ -17,7 +17,7 @@ class StackExchangeConnecter {
             var result;
             try {
                 const response = yield axios_1.default.get(url);
-                // console.log(response);
+                console.log(response);
                 result = response.data;
                 // console.log(response);
             }
