@@ -3,8 +3,9 @@
     "target": "es6",
     "lib":["ES2015","dom","es6"],
     "outDir": "compiled/",
-    "module" : "commonjs"
+    "module" : "commonjs",
+    "esModuleInterop":true
     },
-    "include": ["Tester/", "dataClassTest.ts"],
+    "include": ["Tester/", "dataClassTest.ts", "src/APIConnector/test.ts"],
     //     "include": ["src/", "Tester/testStackExchangeConnector.ts","Tester/"]
 }
