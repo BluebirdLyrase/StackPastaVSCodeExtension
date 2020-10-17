@@ -31,7 +31,7 @@ export class SearchResult extends StackExchangeConnecter {
     private haveResult: boolean = false;
     private lenght: number = 0;
     private json: any;
-    private items: any[];
+    private items: any[] = [];
 
 
 

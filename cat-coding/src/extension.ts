@@ -15,11 +15,14 @@ export function activate(context: vscode.ExtensionContext) {
       );  // And set its HTML content
       //This is the way to use Promise value in not async function
 
-    //  let qhtml = new GetQuestionBody;
-      let questionListHtml = new GetQuestionList;
+      let qhtml = new GetQuestionBody;
+      console.log(qhtml);
+     // let questionListHtml = new GetQuestionList;
 
-      questionListHtml.$questionListHtml.then(function (result) {
+     qhtml.$qHtml.then(function (result) {
+      console.log(result);
         panel.webview.html = result;
+
       });
     })
 

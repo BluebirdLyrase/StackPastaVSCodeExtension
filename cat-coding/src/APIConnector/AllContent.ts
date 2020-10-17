@@ -80,10 +80,11 @@ export class AllContent extends StackExchangeConnecter{
     //output
     private json:any;
     private items:any;
-    private haveTags:boolean;
-    private haveComment:boolean;
+    private haveTags: boolean = false;
+    private haveComment: boolean = false;
     // private haveOwnerImage:boolean;
-    private haveAnswer:boolean;
+    // private haveOwnerImage:boolean;
+    private haveAnswer: boolean = false;
     // private haveOwner:boolean;
     private haveAComment:boolean[] = new Array;
 
