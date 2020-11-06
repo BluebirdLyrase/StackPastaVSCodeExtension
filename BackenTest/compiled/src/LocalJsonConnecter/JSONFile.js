@@ -12,29 +12,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AAtest = void 0;
+exports.JSONFile = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-//maybe need to add "type": "module" in package.js
-//need to add "esModuleInterop":true in tsconfig
-// npm install --save-dev @types/node
-class AAtest {
-    constructor() {
-        this.fs = require('fs');
-    }
-    checkfile(directoryPath) {
+class JSONFile {
+    checkfile(directoryPath, arrayName) {
         return __awaiter(this, void 0, void 0, function* () {
             ////////////Create File if it does not exist/////////////////////////////////
             if (!fs_1.default.existsSync(directoryPath)) {
                 fs_1.default.mkdirSync(directoryPath);
             }
-            const currentDirectoryPath = path_1.default.join(directoryPath, 'Favorite.json');
+            const currentDirectoryPath = path_1.default.join(directoryPath, arrayName + '.json');
             if (!fs_1.default.existsSync(currentDirectoryPath)) {
                 fs_1.default.writeFile(currentDirectoryPath, '', function (err) {
                     if (err) {
                         return console.error(err);
                     }
-                    console.log("File created!");
+                    console.log(arrayName + " File created!");
                 });
             }
             return currentDirectoryPath;
@@ -61,21 +55,5 @@ class AAtest {
             });
         });
     }
-    test22() {
-        return __awaiter(this, void 0, void 0, function* () {
-            //this will be in Document folder/StackOverflowHelper
-            const directoryPath = path_1.default.join(__dirname, '../../../../../../StackOverFlowHelper');
-            console.log(directoryPath);
-            const currentDirectoryPath = yield this.checkfile(directoryPath);
-            console.log("test");
-            var Site = "stackoverflow";
-            var Title = "this is a test title";
-            var ID = "000000";
-            let newStringObject = '{"Site":"' + Site + '",' +
-                '"Title":"' + Title + '",' +
-                '"ID":"' + ID + '"}';
-            yield this.writeJson(currentDirectoryPath, newStringObject);
-        });
-    }
 }
-exports.AAtest = AAtest;
+exports.JSONFile = JSONFile;

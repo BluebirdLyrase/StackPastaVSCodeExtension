@@ -6,6 +6,6 @@
     "module" : "commonjs",
     "esModuleInterop":true
     },
-    "include": ["Tester/", "dataClassTest.ts", "src/APIConnector/test.ts"],
+    "include": ["Tester/", "dataClassTest.ts", "src/"],
     //     "include": ["src/", "Tester/testStackExchangeConnector.ts","Tester/"]
 }

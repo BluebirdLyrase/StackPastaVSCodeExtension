@@ -13,7 +13,7 @@ const test_1 = require("../src/LocalJsonConnecter/test");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         let x = new test_1.AAtest();
-        x.test22();
+        yield x.test22();
     });
 }
 run();
