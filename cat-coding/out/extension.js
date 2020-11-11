@@ -21,23 +21,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.activate = void 0;
 const vscode = __importStar(require("vscode"));
-const getQuestionBody_1 = require("./AllContentsView/getQuestionBody");
+const vscode_express_1 = require("vscode-express");
 function activate(context) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
+    const vscexpress = new vscode_express_1.VSCExpress(context, 'view');
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.search', () => {
         // Create and show a new webview
-        const panel = vscode.window.createWebviewPanel('catCoding', // Identifies the type of the webview. Used internally
-        'Cat Coding', // Title of the panel displayed to the user
-        vscode.ViewColumn.One, // Editor column to show the new webview panel in.
-        {} // Webview options. More on these later.
-        ); // And set its HTML content
-        //This is the way to use Promise value in not async function
-        let qhtml = new getQuestionBody_1.GetQuestionBody;
-        console.log(qhtml);
-        // let questionListHtml = new GetQuestionList;
-        qhtml.$qHtml.then(function (result) {
-            console.log(result);
-            panel.webview.html = result;
-        });
+        //   const panel = vscode.window.createWebviewPanel(
+        //     'catCoding', // Identifies the type of the webview. Used internally
+        //     'Cat Coding', // Title of the panel displayed to the user
+        //     vscode.ViewColumn.One, // Editor column to show the new webview panel in.
+        //     {} // Webview options. More on these later.
+        //   );  // And set its HTML content
+        //   //This is the way to use Promise value in not async function
+        //   let qhtml = new GetQuestionBody;
+        //   console.log(qhtml);
+        //  // let questionListHtml = new GetQuestionList;
+        //  qhtml.$qHtml.then(function (result) {
+        //   console.log(result);
+        //     panel.webview.html = result;
+        //   });
+        vscexpress.open('index.html', 'VS Code Express Example', vscode.ViewColumn.One);
     }));
 }
 exports.activate = activate;

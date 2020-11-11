@@ -1,6 +1,6 @@
 {
-	"name": "cat-coding",
-	"description": "Cat Coding - A Webview API Sample",
+	"name": "stack-pasta",
+	"description": "Stack Pasta",
 	"version": "0.0.1",
 	"publisher": "vscode-samples",
 	"engines": {
@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:catCoding.start",
+		"onCommand:stackpasta.search",
 		"onCommand:catCoding.doRefactor",
 		"onWebviewPanel:catCoding"
 	],
@@ -22,9 +22,9 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "catCoding.start",
-				"title": "Start cat coding session",
-				"category": "Cat Coding"
+				"command": "stackpasta.search",
+				"title": "Searching with stack pasta",
+				"category": "stackpasta"
 			},
 			{
 				"command": "catCoding.doRefactor",
@@ -40,7 +40,8 @@
 		"watch": "tsc -w -p ./"
 	},
 	"dependencies": {
-		"axios": "^0.20.0"
+		"axios": "^0.20.0",
+		"vscode-express": "^1.0.1"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^3.0.2",
