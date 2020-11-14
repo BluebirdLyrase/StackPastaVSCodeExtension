@@ -11,19 +11,14 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",
-        "onCommand:extension.vscexpress"
+        "onCommand:extension.stackpasta"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
-            },
-            {
-                "command": "extension.vscexpress",
-                "title": "VS Code Express"
+                "command": "extension.stackpasta",
+                "title": "Stack Pasta"
             }
         ]
     },
