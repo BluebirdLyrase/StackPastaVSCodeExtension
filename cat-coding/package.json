@@ -11,8 +11,8 @@
 	],
 	"activationEvents": [
 		"onCommand:stackpasta.search",
-		"onCommand:catCoding.doRefactor",
-		"onWebviewPanel:catCoding"
+		"onCommand:stackpasta.searchList",
+		"onWebviewPanel:stackpasta"
 	],
 	"repository": {
 		"type": "git",
@@ -27,9 +27,9 @@
 				"category": "stackpasta"
 			},
 			{
-				"command": "catCoding.doRefactor",
-				"title": "Do some refactoring",
-				"category": "Cat Coding"
+				"command": "stackpasta.searchList",
+				"title": "Do some searching",
+				"category": "stackpasta"
 			}
 		]
 	},

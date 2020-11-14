@@ -28,6 +28,10 @@ function activate(context) {
         // Create and show a new webview
         vscexpress.open('index.html', 'VS Code Express Example', vscode.ViewColumn.One);
     }));
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.searchList', (searchtext) => {
+        // Create and show a new webview
+        vscexpress.open('searchResult.html?searchText=' + searchtext, 'VS Code Express Example', vscode.ViewColumn.One);
+    }));
 }
 exports.activate = activate;
 //# sourceMappingURL=extension.js.map

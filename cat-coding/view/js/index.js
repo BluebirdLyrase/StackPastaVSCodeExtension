@@ -1,16 +1,6 @@
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search form stack</title>
-    <input type="text" id="searchtext">
-    <button onclick="search()">Search</button>
 
 
-<!-- <script src="index.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
-
-<script src="index.js">
 function search() {
     ('#searchtext').append('ddd');
     var searchText = document.getElementById("searchtext").value;
@@ -48,4 +38,3 @@ function command(cmd, callback) {
     xhr.open('GET', url, true);
     xhr.send();
   }
-</script>
