@@ -11,13 +11,13 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.stackpasta"
+        "onCommand:stackpasta.search"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.stackpasta",
+                "command": "stackpasta.search",
                 "title": "Stack Pasta"
             }
         ]

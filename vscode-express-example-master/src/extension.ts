@@ -18,9 +18,25 @@ export function activate(context: vscode.ExtensionContext) {
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
 
-    context.subscriptions.push(vscode.commands.registerCommand('extension.stackpasta', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.search', () => {
         vscexpress.open('index.html', 'StackPasta', vscode.ViewColumn.One);
     }));
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.favorite', () => {
+        vscexpress.open('favorite.html', 'Favorite Question', vscode.ViewColumn.One);
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.history', () => {
+        vscexpress.open('history.html', 'History', vscode.ViewColumn.One);
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.offline', () => {
+        vscexpress.open('offline.html', 'Offline Storage', vscode.ViewColumn.One);
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.pinned', () => {
+        vscexpress.open('pinned.html', 'Pinned Question', vscode.ViewColumn.One);
+    }));
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.setting', () => {
+        vscexpress.open('setting.html', 'Setting', vscode.ViewColumn.One);
+    }));
+
 }
 
 // this method is called when your extension is deactivated

@@ -8,13 +8,17 @@
 </head>
 <body>
     <div class="topnav">
-        <a class="active" href="#">Search</a>
-        <a href="#">Favorite</a>
-        <a href="#">Offline</a>
-        <a href="#">History</a>
-        <a href="#">Pinned</a>
-        <a href="#">Setting</a>
+        <a onclick="search()" class="active" href="#">Search</a>
+        <a onclick="favorite()" href="#">Favorite</a>
+        <a onclick="offline()" href="#">Offline</a>
+        <a onclick="history()" href="#">History</a>
+        <a onclick="pinned()" href="#">Pinned</a>
+        <a onclick="setting()" href="#">Setting</a>
     </div>
+
+<button onclick="searchformstack()">Search</button>
+
+<script src="js/navbar.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>

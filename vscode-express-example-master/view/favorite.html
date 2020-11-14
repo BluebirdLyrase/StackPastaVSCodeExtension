@@ -1,13 +1,26 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Favorite</title>
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
-    Favorite
+    <div class="topnav">
+        <a onclick="search()" href="#">Search</a>
+        <a onclick="favorite()" class="active" href="#">Favorite</a>
+        <a onclick="offline()" href="#">Offline</a>
+        <a onclick="history()" href="#">History</a>
+        <a onclick="pinned()" href="#">Pinned</a>
+        <a onclick="setting()" href="#">Setting</a>
+    </div>
+<script src="js/navbar.js"></script>
 </body>
 </html>
+
+<!-- <button onclick="hello()">Hello</button>
+<button onclick="closeTab()">Close Tab</button>
+
+
+
