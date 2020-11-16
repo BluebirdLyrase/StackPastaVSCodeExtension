@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    
 </head>
-<body>
+
+<body class = "allbody">
     <!-- navbar -->
     <div class="topnav">
         <a onclick="search()" class="active" href="index.html">Search</a>
@@ -18,21 +23,72 @@
     </div>
     <!-- end of navbar -->
 
+    <!-- Search form -->
+    <div class="container-fluid">
 
-<div id="searchResult"></div>
-<button onclick="searchformstack()">Search</button>
+        <div class="md-form mt-10">
+            <input id="searchtext" class="form-control" type="text" placeholder="Search Text" aria-label="Search">
+        </div>
+
+        <div class="row mt-10">
+
+            <div class="form-group col-7 ">
+
+                <select class="search form-control " name="sortby" id="sortby">
+                    <option value="relevance" selected>Sort By</option>
+                    <option value="relevance">Relevance</option>
+                    <option value="creation">Creation</option>
+                    <option value="votes">Votes</option>
+                    <option value="activity">Activity</option>
+                </select>
+
+            </div>
+
+            <div class="form-group col-5">
+                <select class="search form-control" name="order" id="order">
+                    <option value="ASC" selected>Order</option>
+                    <option value="ASC" >ASC</option>
+                    <option value="DESC" >DESC</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="form-group col-4">
+
+                <select class="search form-control" name="site" id="site">
+                    <option value="stackoverflow" selected>Site</option>
+ 
+                </select>
+            </div>
+
+            <div class="md-form col-6">
+                <input id="tags" class="form-control " type="text" placeholder="Tags Seperate tags by using ;" aria-label="Tags">
+            </div>
+
+            <div class="md-form col-2">
+                <button type="button" class="btn btn-secondary" id="search" onclick="searchformstack()">Search</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <ul id="searchResult" class="list-group"></ul>
 
 
 
-<script src="js/navbar.js"></script>
-<script src="js/index.js"></script>
-<script src="js/jquery-3.5.1.js"></script>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/index.js"></script>
+
 
 </body>
+
 </html>
 
 <!-- <button onclick="hello()">Hello</button>
 <button onclick="closeTab()">Close Tab</button>
-
-
-

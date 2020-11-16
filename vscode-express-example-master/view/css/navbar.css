@@ -1,4 +1,10 @@
 /* Add a black background color to the top navigation */
+
+.allbody{
+  background-color: rgb(30,30,30);
+
+}
+
 .topnav {
     background-color: #333;
     overflow: hidden;
