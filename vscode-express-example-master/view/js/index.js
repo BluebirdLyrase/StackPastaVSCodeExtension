@@ -1,14 +1,10 @@
+function closeTab() {
+    command('extension.vscexpressclose', 'index.html');
+}
 
 function searchformstack(){
 
     console.log("searchformstack")
-
-    // pageSize = "40"
-    // order = "asc"
-    // sort = "relevance"
-    // intitle = "Eclipse"
-    // tagContent = ""
-    // site = "Stackoverflow"
 
     pageSize = "40"
     order = $('#order').val();
@@ -17,11 +13,11 @@ function searchformstack(){
     tagContent = $('#tags').val();
     site = $('#site').val();
 
-    if(tagContent!=null){
+    if(tagContent!=""){
         tagContent = "&tagged=" + tagContent;
     }
 
-    console.log(+intitle);
+    console.log(intitle);
     console.log(order);
     console.log(sort);
     console.log(tagContent);
@@ -31,14 +27,16 @@ function searchformstack(){
         + "&order=" + this.order + "&sort=" + this.sort + "&q=" + this.intitle + "&accepted=True" + tagContent
         + "&site=" + this.site + "&filter=!4(L6lo9D9J9Y3508i";
 
+    console.log(url)
+
     $.get(url, function (data, status) {
         $("#searchResult").empty();
 
         data.items.forEach(function(item, index) {
 
         var card = `
-        <li class="list-group-item card-body bg-secondary stackcard"><span class="AnswerNumber">`+item.answer_count +
-        `</span>   `+ item.title+`</li>`
+        <li class="list-group-item card-body bg-secondary stackcard" onclick="ContentView('`+item.question_id +`')" ><span class="AnswerNumber" >`
+        +item.answer_count + `</span>   `+ item.title+`</li>`
         $("#searchResult").append(card);
 
          });
@@ -56,3 +54,8 @@ function createSiteList(){
     });
 }
 createSiteList();
+
+function ContentView(id){
+    console.log(id);
+    command('stackpasta.allContent',id);
+}

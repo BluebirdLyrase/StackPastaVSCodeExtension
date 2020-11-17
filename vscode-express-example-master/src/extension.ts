@@ -53,6 +53,11 @@ export function activate(context: vscode.ExtensionContext) {
         vscexpress.close(path);
     }));
 
+    //All Content
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.allContent', (id: string) => {
+        vscode.window.showInformationMessage('QUESTION ID :: ' +id);
+    }));
+
 }
 
 // this method is called when your extension is deactivated

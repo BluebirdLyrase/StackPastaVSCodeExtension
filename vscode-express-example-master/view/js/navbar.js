@@ -44,30 +44,34 @@ window.addEventListener('message', event => {
 //   command('extension.sayHello');
 // }
 
-// function closeTab() {
-//   command('extension.vscexpressclose', 'index.html');
-// }
+
 
 function search() {
   command('stackpasta.search');
+  closeTab();
 }
 
 function favorite() {
   command('stackpasta.favorite');
+  closeTab();
 }
 
 function history() {
   command('stackpasta.history');
+  closeTab();
 }
 
 function offline() {
   command('stackpasta.offline');
+  closeTab();
 }
 
 function pinned() {
   command('stackpasta.pinned');
+  closeTab();
 }
 
 function setting() {
   command('stackpasta.setting');
+  closeTab();
 }
