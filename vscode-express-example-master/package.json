@@ -36,6 +36,7 @@
         "@types/mocha": "^2.2.42"
     },
     "dependencies": {
+        "axios": "^0.21.0",
         "vscode-express": "^1.0.0"
     }
 }

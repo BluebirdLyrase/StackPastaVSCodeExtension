@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contentview.css">
+
 
 </head>
 
 <body class="allbody">
+
     <!-- navbar -->
     <div class="topnav">
         <a onclick="search()" class="active" href="index.html">Search</a>
@@ -24,74 +27,77 @@
     <!-- end of navbar -->
 
     <!-- Search form -->
-    <div class="container-fluid">
+    <div id="main">
+        <div class="container-fluid main">
 
+            <div class="row">
 
+                <div class="md-form col-12" style="margin-top: 15px;">
+                    <input id="searchtext" class="searchTextBox" type="text" placeholder="Search Text" aria-label="Search">
 
-        <div class="row mt-10">
-
-            <div class="md-form col-12">
-                <input id="searchtext" class="searchTextBox" type="text" placeholder="Search Text" aria-label="Search">
-
-            <!-- <div class="md-form col-1 mt-10"> -->
-            <button type="button" class="mybtn btn-secondary" id="search"
-                onclick="searchformstack()">SEARCH</button>
-            <!-- </div> -->
-            </div>
-
-        </div>
-
-        <div class="row">
-
-            <div class="form-group col-12">
-
-                <select class="search mt-10" name="site" id="site">
-                    <option value="stackoverflow" selected>Site</option>
-
-                </select>
-                <!-- </div>   -->
-
-                <!-- <div class="form-group "> -->
-
-                <select class="search mt-10" name="sortby" id="sortby">
-                    <option value="relevance" selected>Sort By</option>
-                    <option value="relevance">Relevance</option>
-                    <option value="creation">Creation</option>
-                    <option value="votes">Votes</option>
-                    <option value="activity">Activity</option>
-                </select>
-
-                <!-- </div> -->
-
-                <!-- <div class="form-group" > -->
-                <select class="search mt-10" name="order" id="order">
-                    <option value="ASC" selected>Order</option>
-                    <option value="ASC">ASC</option>
-                    <option value="DESC">DESC</option>
-                </select>
-
-                <!-- </div> -->
-
-                <!-- <div class="md-form col-4 mt-10"> -->
-                <input id="tags" type="text" class="tag mt-10" placeholder="Tags Seperate tags by using ;"
-                    aria-label="Tags">
-                <!-- </div> -->
-
+                    <!-- <div class="md-form col-1 mt-10"> -->
+                    <button type="button" class="mybtn btn-secondary" id="search" onclick="searchformstack()">SEARCH</button>
+                    <!-- </div> -->
+                </div>
 
             </div>
 
+            <div class="row">
+
+                <div class="form-group col-12">
+
+                    <select class="search mt-10" name="site" id="site">
+                        <option value="stackoverflow" selected>Site</option>
+
+                    </select>
+                    <!-- </div>   -->
+
+                    <!-- <div class="form-group "> -->
+
+                    <select class="search mt-10" name="sortby" id="sortby">
+                        <option value="relevance" selected>Sort By</option>
+                        <option value="relevance">Relevance</option>
+                        <option value="creation">Creation</option>
+                        <option value="votes">Votes</option>
+                        <option value="activity">Activity</option>
+                    </select>
+
+                    <!-- </div> -->
+
+                    <!-- <div class="form-group" > -->
+                    <select class="search mt-10" name="order" id="order">
+                        <option value="ASC" selected>Order</option>
+                        <option value="ASC">ASC</option>
+                        <option value="DESC">DESC</option>
+                    </select>
+
+                    <!-- </div> -->
+
+                    <!-- <div class="md-form col-4 mt-10"> -->
+                    <input id="tags" type="text" class="tag mt-10" placeholder="Tags Seperate tags by using ;" aria-label="Tags">
+                    <!-- </div> -->
 
 
+                </div>
+
+            </div>
+
+            <!-- Topbar -->
         </div>
-
         <ul id="searchResult" class="list-group"></ul>
+    </div>
 
 
+    <div id="Content" class="content">
 
-        <script src="js/jquery-3.5.1.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/navbar.js"></script>
-        <script src="js/index.js"></script>
+    </div>
+
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/contentview.js"></script>
+    <script src="js/index.js"></script>
 
 
 </body>

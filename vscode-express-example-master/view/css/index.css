@@ -1,35 +1,40 @@
-.mt-10{
+.mt-10 {
     margin-top: 5px;
 }
 
-
-.search,input[type="text"],textarea,select,option {
-
-    background-color : rgb(94, 94, 94);  
-    border-color : rgb(94, 94, 94);
-    color : rgb(255, 255, 255);
+.search,
+input[type="text"],
+textarea,
+select,
+option {
+    background-color: rgb(94, 94, 94);
+    border-color: rgb(94, 94, 94);
+    color: rgb(255, 255, 255);
     font-size: 13px;
-    height:30px;
-    
-  
-  }
+    height: 30px;
+}
 
-.stackcard{
 
+/* .searchbar {
+    background-color: #333;
+} */
+
+.stackcard {
     height: auto;
-    color : rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     font-size: 13px;
-    margin-left: 20px;
-    margin-right: 20px;
-    
+    background-color: rgb(39, 39, 39);
 }
 
-.AnswerNumber{
-    color : rgb(238, 119, 23);
+.main {
+    background-color: #333;
 }
 
+.AnswerNumber {
+    color: rgb(238, 119, 23);
+}
 
-.mybtn{
+.mybtn {
     /* vertical-align: middle; */
     border: 1px solid transparent;
     padding: .3rem .50rem;
@@ -40,17 +45,17 @@
     border-radius: .25rem;
 }
 
-.searchTextBox{
+.searchTextBox {
     width: 80%;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.tag{
+.tag {
     width: 30%;
     /* padding: .375rem .75rem; */
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }

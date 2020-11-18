@@ -75,3 +75,4 @@ function setting() {
   command('stackpasta.setting');
   closeTab();
 }
+
