@@ -63,8 +63,10 @@ class AAtest {
     }
     test22() {
         return __awaiter(this, void 0, void 0, function* () {
+            const os = require('os');
+            console.log(os.homedir());
             //this will be in Document folder/StackOverflowHelper
-            const directoryPath = path_1.default.join(__dirname, '../../../../../../StackOverFlowHelper');
+            const directoryPath = path_1.default.join(os.homedir(), 'StackOverFlowHelper');
             console.log(directoryPath);
             const currentDirectoryPath = yield this.checkfile(directoryPath);
             console.log("test");

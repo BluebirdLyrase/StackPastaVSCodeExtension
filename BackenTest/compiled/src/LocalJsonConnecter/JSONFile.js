@@ -16,13 +16,19 @@ exports.JSONFile = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 class JSONFile {
-    checkfile(directoryPath, arrayName) {
+    deleteFile(currentDirectoryPath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            fs_1.default.unlinkSync(currentDirectoryPath);
+        });
+    }
+    getCurrentDirectoryPath(directoryPath, arrayName) {
         return __awaiter(this, void 0, void 0, function* () {
             ////////////Create File if it does not exist/////////////////////////////////
             if (!fs_1.default.existsSync(directoryPath)) {
                 fs_1.default.mkdirSync(directoryPath);
             }
             const currentDirectoryPath = path_1.default.join(directoryPath, arrayName + '.json');
+            console.log(currentDirectoryPath);
             if (!fs_1.default.existsSync(currentDirectoryPath)) {
                 fs_1.default.writeFile(currentDirectoryPath, '', function (err) {
                     if (err) {
@@ -34,7 +40,7 @@ class JSONFile {
             return currentDirectoryPath;
         });
     }
-    writeJson(currentDirectoryPath, newStringObject) {
+    saveJSONFile(currentDirectoryPath, newStringObject) {
         return __awaiter(this, void 0, void 0, function* () {
             ////////////Read then add new Value////////////////////////////////////
             var file = fs_1.default.readFileSync(currentDirectoryPath, 'utf-8');

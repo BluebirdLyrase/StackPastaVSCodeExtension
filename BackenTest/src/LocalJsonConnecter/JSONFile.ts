@@ -15,7 +15,7 @@ export class JSONFile{
         }
 
         const currentDirectoryPath = path.join(directoryPath, arrayName+'.json');
-
+        console.log(currentDirectoryPath);
         if (!fs.existsSync(currentDirectoryPath)) {
             fs.writeFile(currentDirectoryPath, '', function (err) {
                 if (err) {

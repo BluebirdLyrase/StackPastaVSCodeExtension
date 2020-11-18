@@ -58,8 +58,10 @@ export class AAtest {
     }
 
     public async test22() {
+        const os = require('os'); 
+        console.log(os.homedir());
         //this will be in Document folder/StackOverflowHelper
-        const directoryPath = path.join(__dirname, '../../../../../../StackOverFlowHelper');
+        const directoryPath = path.join(os.homedir(), 'StackOverFlowHelper');
         console.log(directoryPath);
 
         const currentDirectoryPath = await this.checkfile(directoryPath)
