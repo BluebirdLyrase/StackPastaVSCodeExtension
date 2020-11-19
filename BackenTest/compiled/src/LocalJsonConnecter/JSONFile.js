@@ -42,18 +42,8 @@ class JSONFile {
     }
     saveJSONFile(currentDirectoryPath, newStringObject) {
         return __awaiter(this, void 0, void 0, function* () {
-            ////////////Read then add new Value////////////////////////////////////
-            var file = fs_1.default.readFileSync(currentDirectoryPath, 'utf-8');
-            console.log(file);
-            let newJsonObject = JSON.parse(newStringObject);
-            if (file == "") {
-                file = '{"Favorite":[]}';
-            }
-            let oldJsonObject = JSON.parse(file);
-            oldJsonObject['Favorite'].push(newJsonObject);
-            console.log('================================');
-            console.log(oldJsonObject);
-            fs_1.default.writeFile(currentDirectoryPath, JSON.stringify(oldJsonObject), function (err) {
+            console.log(JSON.stringify(newStringObject));
+            fs_1.default.writeFile(currentDirectoryPath, JSON.stringify(newStringObject), function (err) {
                 if (err) {
                     return console.error(err);
                 }

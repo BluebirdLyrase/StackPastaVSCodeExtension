@@ -19,9 +19,6 @@ const path_1 = __importDefault(require("path"));
 //need to add "esModuleInterop":true in tsconfig
 // npm install --save-dev @types/node
 class AAtest {
-    constructor() {
-        this.fs = require('fs');
-    }
     checkfile(directoryPath) {
         return __awaiter(this, void 0, void 0, function* () {
             ////////////Create File if it does not exist/////////////////////////////////

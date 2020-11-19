@@ -9,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const test_1 = require("../src/LocalJsonConnecter/test");
+const LocalJsonList_1 = require("../../src/LocalJsonConnecter/LocalJsonList");
 //tsc to compilr
 //node path to run
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        let x = new test_1.AAtest();
-        yield x.test22();
+        let x = yield new LocalJsonList_1.LocalJsonList("Favorite");
+        console.log(x.getSize());
+        x.clear();
     });
 }
 run();

@@ -27,24 +27,11 @@ export class JSONFile{
         return currentDirectoryPath;
 }
 
-protected async saveJSONFile(currentDirectoryPath:string,newStringObject:string){
+protected async saveJSONFile(currentDirectoryPath:string,newStringObject:any){
 
-    ////////////Read then add new Value////////////////////////////////////
-    var file = fs.readFileSync(currentDirectoryPath, 'utf-8');
-    console.log(file);
+    console.log(JSON.stringify(newStringObject));
 
-    let newJsonObject = JSON.parse(newStringObject);
-
-    if(file==""){
-        file = '{"Favorite":[]}';
-    }
-    let oldJsonObject = JSON.parse(file);
-    oldJsonObject['Favorite'].push(newJsonObject);
-
-    console.log('================================');
-    console.log(oldJsonObject);
-
-    fs.writeFile(currentDirectoryPath, JSON.stringify(oldJsonObject),  function(err) {
+    fs.writeFile(currentDirectoryPath, JSON.stringify(newStringObject),  function(err) {
         if (err) {
             return console.error(err);
         }

@@ -8,8 +8,6 @@ import path from 'path';
 
 export class AAtest {
 
-    private fs = require('fs');
-
     private async checkfile(directoryPath:string):Promise<string> {
 
                 ////////////Create File if it does not exist/////////////////////////////////
