@@ -17,19 +17,23 @@ class FavoriteWriter extends LocalJsonList_1.LocalJsonList {
     }
     saveFavorite(title, id, site) {
         return __awaiter(this, void 0, void 0, function* () {
-            var msg;
-            var fav = this.jsonObject.Favorite;
-            var lenght = fav.length;
-            console.log("Fav Lenght : " + length);
+            var msg = "Failed to added " + title + " to Favorite";
+            var obj = this.getJsonObject;
+            var fav = obj.Favorite;
+            var l = fav.length;
+            console.log("Fav Lenght : " + l);
             var isNotDuplicate = true;
             fav.forEach(function (value, index) {
                 console.log(index + "::" + value.ID + value.Site);
                 if (value.ID === id && value.Site === site) {
                     console.log("isDupe");
                     isNotDuplicate = false;
+                    msg = title + " is Duplicate ";
                 }
             });
             if (isNotDuplicate) {
+                fav.push({ Site: site, Title: title, ID: id });
+                msg = "Succesfully added " + title + " to Favorite";
             }
             return msg;
         });

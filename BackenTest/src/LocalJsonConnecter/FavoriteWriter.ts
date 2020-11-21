@@ -10,9 +10,10 @@ export class FavoriteWriter extends LocalJsonList{
     
     public async saveFavorite(title:string,id:string,site:string): Promise<string>{
         var msg = "Failed to added " +title+" to Favorite";
-        var fav = this.jsonObject.Favorite;
-        var lenght = fav.length;
-        console.log("Fav Lenght : "+length);
+        var obj = this.getJsonObject;
+        var fav = obj.Favorite;
+        var l = fav.length;
+        console.log("Fav Lenght : "+l);
         var isNotDuplicate = true;
 
         fav.forEach(function (value,index){
@@ -28,7 +29,6 @@ export class FavoriteWriter extends LocalJsonList{
             fav.push({ Site: site, Title: title,ID: id});
             msg = "Succesfully added "+title+" to Favorite"
         }
-
         
         return msg;
     }

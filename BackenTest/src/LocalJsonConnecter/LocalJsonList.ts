@@ -15,7 +15,7 @@ export class LocalJsonList extends JSONFile{
     protected jsonObject: any;
     protected delConfrimMsg = "Are you sure you want to delete this?";
 
-    public get getJsonObject(): any[]  {
+    public get getJsonObject(): any  {
 		return this.jsonObject;
 	}
 
