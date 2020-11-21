@@ -31,6 +31,9 @@ class LocalJsonList extends JSONFile_1.JSONFile {
         var file = fs_1.default.readFileSync(this.filePath, 'utf-8');
         this.jsonObject = JSON.parse(file);
     }
+    get getJsonObject() {
+        return this.jsonObject;
+    }
     checkfile() {
         return __awaiter(this, void 0, void 0, function* () {
             ////////////Create File if it does not exist/////////////////////////////////
@@ -47,9 +50,14 @@ class LocalJsonList extends JSONFile_1.JSONFile {
             }
         });
     }
-    // public async delete(index: string) {
-    //     console.log('need to be implement for each one')
-    // }
+    delete(index) {
+        return __awaiter(this, void 0, void 0, function* () {
+            var item = this.jsonObject[this.arrayName];
+            this.jsonObject[this.arrayName].splice(index, 1);
+            console.log('deleted item ' + item[index]);
+            yield this.saveJSONFile(this.filePath, this.jsonObject);
+        });
+    }
     clear() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.deleteFile(this.filePath);

@@ -15,6 +15,10 @@ export class LocalJsonList extends JSONFile{
     protected jsonObject: any;
     protected delConfrimMsg = "Are you sure you want to delete this?";
 
+    public get getJsonObject(): any[]  {
+		return this.jsonObject;
+	}
+
     private async checkfile() {
 
         ////////////Create File if it does not exist/////////////////////////////////
@@ -44,9 +48,12 @@ export class LocalJsonList extends JSONFile{
 
     }
 
-    // public async delete(index: string) {
-    //     console.log('need to be implement for each one')
-    // }
+    public async delete(index: number) {
+        var item = this.jsonObject[this.arrayName];
+        this.jsonObject[this.arrayName].splice(index, 1);
+        console.log('deleted item '+item[index]);
+        await this.saveJSONFile(this.filePath,this.jsonObject);
+    }
 
     public async clear() {
         await this.deleteFile(this.filePath);
