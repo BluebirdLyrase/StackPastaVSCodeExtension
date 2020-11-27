@@ -36,6 +36,7 @@ protected async saveJSONFile(currentDirectoryPath:string,newStringObject:any){
             return console.error(err);
         }
         console.log("File added!");
+        console.log(newStringObject);
     });
 
 }

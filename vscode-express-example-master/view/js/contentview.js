@@ -1,5 +1,8 @@
+
 function ContentView(id, site) {
     console.log(id);
+    // command('stackpasta.allContent', id,site);
+    // command('extension.vscexpressclose', 'index.html');
     $("#main").addClass("d-none");
 
     $.get("contentview.html", function(html_string) {
@@ -22,11 +25,14 @@ function HTMLBuilder(data) {
 
     q = data.items[0];
 
+    var HTMLBody;
+
     question = "<h4 style='margin-top:4px'>" +
         q.title + "</h4>" +
         q.body + "<hr>";
 
     $("#contentview").append(question);
+    // HTMLBody = HTMLBody + question;
 
     questionComment = ""
 
@@ -43,6 +49,7 @@ function HTMLBuilder(data) {
     }
 
     $("#contentview").append(questionComment);
+    // HTMLBody = HTMLBody + questionComment;
 
     questionOwner = "<div class='owner myrow' >" +
         "<div class='column'><img src=\"" +
@@ -54,6 +61,7 @@ function HTMLBuilder(data) {
         "<hr style=\" box-shadow: 0px 5px 5px black;\">"
 
     $("#contentview").append(questionOwner);
+    // HTMLBody = HTMLBody + questionOwner;
 
     if (q.answer_count > 0) {
 
@@ -68,6 +76,7 @@ function HTMLBuilder(data) {
                     item.body + "<hr>"
             }
             $("#contentview").append(answersbody);
+            // HTMLBody = HTMLBody + answersbody;
 
             if (item.comment_count > 0) {
                 answercomment = "<button class=\"link\" onclick='showComment(" + index + ")' >show comments</button><div  id='aCommentID" + index + "' class='commentbox'>";
@@ -80,6 +89,7 @@ function HTMLBuilder(data) {
 
                 });
                 $("#contentview").append(answercomment);
+                // HTMLBody = HTMLBody + answercomment;
             }
 
             answerOwner = "<div class='owner myrow' >" +
@@ -92,10 +102,13 @@ function HTMLBuilder(data) {
                 "<hr style=\" box-shadow: 0px 5px 5px black;\">"
 
             $("#contentview").append(answerOwner);
+            // HTMLBody = HTMLBody + answerOwner;
 
         });
 
     }
+
+    // $("#contentview").append(HTMLBody);
 
 }
 
@@ -121,3 +134,4 @@ function showComment(id) {
         x.style.display = "block";
     }
 }
+

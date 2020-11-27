@@ -9,18 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const FavoriteWriter_1 = require("../../src/LocalJsonConnector/FavoriteWriter");
+const Account_1 = require("../../src/DatabaseConnector/Account");
 //tsc to compilr
 //node path to run
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        let x = yield new FavoriteWriter_1.FavoriteWriter();
-        x.saveFavorite("1", "1", "1");
-        // var fav = x.getJsonObject;
-        // console.log(fav);
-        // console.log(fav.Favorite.length);
-        // x.delete(fav.Favorite.length);
-        // console.log(fav);
+        let x = new Account_1.Account();
+        var q = x.Logout();
+        console.log("what " + q);
     });
 }
 run();

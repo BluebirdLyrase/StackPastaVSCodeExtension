@@ -1,4 +1,4 @@
-import {LocalJsonList} from '../../src/LocalJsonConnecter/LocalJsonList';
+import {LocalJsonList} from '../../src/LocalJsonConnector/LocalJsonList';
 
 //tsc to compilr
 //node path to run

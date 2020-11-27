@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const LocalJsonList_1 = require("../../src/LocalJsonConnecter/LocalJsonList");
+const LocalJsonList_1 = require("../../src/LocalJsonConnector/LocalJsonList");
 //tsc to compilr
 //node path to run
 function run() {

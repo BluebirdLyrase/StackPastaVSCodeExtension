@@ -89,21 +89,10 @@ export class AllContent extends StackExchangeConnecter{
 
 
 
-	constructor($question_id: string, $isOffline: boolean, $site: string) {
+	constructor($question_id: string, $site: string) {
         super();
 		this.question_id = $question_id;
-		this.isOffline = $isOffline;
-		this.site = $site;
-    }
-
-    public async creatJson(){
-    
-        if(this.isOffline){
-            //TODO
-            console.log("not yet implement")
-        }else{
-            await this.jsonFromAPI();
-        }
+        this.site = $site;
     }
 
     public async jsonFromAPI(){
