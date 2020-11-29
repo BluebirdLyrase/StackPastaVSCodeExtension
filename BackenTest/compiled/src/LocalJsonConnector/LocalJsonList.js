@@ -57,32 +57,18 @@ class LocalJsonList extends JSONFile_1.JSONFile {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.checkfile();
             try {
-                var file = fs_1.default.readFileSync(this.filePath, 'utf-8');
-                this.jsonObject = JSON.parse(file);
+                // var file:string = await fs.readFileSync(this.filePath, 'utf-8');
+                // console.log('path:'+this.filePath);
+                // console.log(file);
+                this.jsonObject = require(this.filePath);
+                console.log(this.jsonObject);
+                // this.jsonObject = await JSON.parse(file);
+                // this.jsonObject = await JSON.parse('{"Account":[{"password":"admin","login":true,"userID":"admin","databaseURL":"http://localhost:8095"}]}');
             }
-            catch (_a) {
+            catch (error) {
+                console.error(error);
                 console.log('Fail to read JSON');
             }
-        });
-    }
-    delete(index) {
-        return __awaiter(this, void 0, void 0, function* () {
-            var item = this.jsonObject[this.arrayName];
-            this.jsonObject[this.arrayName].splice(index, 1);
-            console.log('deleted item ' + item[index]);
-            yield this.saveJSONFile(this.filePath, this.jsonObject);
-        });
-    }
-    clear() {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield this.deleteFile(this.filePath);
-        });
-    }
-    getSize() {
-        return __awaiter(this, void 0, void 0, function* () {
-            var stats = fs_1.default.statSync(this.filePath);
-            var fileSizeInBytes = stats.size;
-            return fileSizeInBytes;
         });
     }
 }

@@ -41,7 +41,9 @@ class Account extends LocalJsonList_1.LocalJsonList {
     }
     haveAccount() {
         return __awaiter(this, void 0, void 0, function* () {
-            var l = this.jsonObject.Account.lenght;
+            yield this.createJson();
+            // console.log(this.jsonObject);
+            const l = this.jsonObject.Account.lenght;
             return (l != 0);
         });
     }
@@ -50,10 +52,10 @@ class Account extends LocalJsonList_1.LocalJsonList {
             checkfile: { get: () => super.checkfile }
         });
         return __awaiter(this, void 0, void 0, function* () {
-            var result;
+            var result = this.error;
             this.DatabaseURL = DatabaseURL;
-            var json = JSON.parse('{"UserID":"' + userID + '","Password" :"' + password + '"}');
-            var authenURL = this.DatabaseURL + "api/authen";
+            const json = JSON.parse('{"UserID":"' + userID + '","Password" :"' + password + '"}');
+            const authenURL = this.DatabaseURL + "/api/authen";
             try {
                 console.log(authenURL);
                 const response = yield axios_1.default.post(authenURL, json);
@@ -79,9 +81,38 @@ class Account extends LocalJsonList_1.LocalJsonList {
     }
     setDatabase() {
         return __awaiter(this, void 0, void 0, function* () {
-            var account;
-            account = JSON.parse('{"Account":[{"password":"' + this.password + '","login":true,"userID":"' + this.userID + '","databaseURL":"' + this.DatabaseURL + '"}]}');
+            const account = JSON.parse('{"Account":[{"password":"' + this.password + '","login":true,"userID":"' + this.userID + '","databaseURL":"' + this.DatabaseURL + '"}]}');
             this.saveJSONFile(this.filePath, account);
+        });
+    }
+    isLoggedIn() {
+        const _super = Object.create(null, {
+            checkfile: { get: () => super.checkfile }
+        });
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.createJson();
+            var result = false;
+            if (this.haveAccount()) {
+                try {
+                    var userID = this.jsonObject.Account[0].userID;
+                    var password = this.jsonObject.Account[0].password;
+                    var databaseURL = this.jsonObject.Account[0].databaseURL;
+                    // console.log(userID+password+databaseURL);
+                    const json = JSON.parse('{"UserID":"' + userID + '","Password" :"' + password + '"}');
+                    const authenURL = this.DatabaseURL + "/api/authen";
+                    const response = yield axios_1.default.post(authenURL, json);
+                    if (response.data) {
+                        yield _super.checkfile.call(this);
+                        result = true;
+                    }
+                    result = true;
+                }
+                catch (_a) {
+                    console.log("Error logging in from isLoggedIn");
+                    this.Logout();
+                }
+            }
+            return result;
         });
     }
 }

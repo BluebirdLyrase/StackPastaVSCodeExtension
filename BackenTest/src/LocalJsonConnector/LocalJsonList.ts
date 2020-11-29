@@ -52,12 +52,18 @@ export class LocalJsonList extends JSONFile{
         
     }
 
-    private async createJson(){
+    protected async createJson(){
         await this.checkfile();
         try{
-        var file = fs.readFileSync(this.filePath, 'utf-8');
-        this.jsonObject = JSON.parse(file);
-        }catch{
+        // var file:string = await fs.readFileSync(this.filePath, 'utf-8');
+        // console.log('path:'+this.filePath);
+        // console.log(file);
+        this.jsonObject = require(this.filePath);
+        // console.log(this.jsonObject);
+        // this.jsonObject = await JSON.parse(file);
+        // this.jsonObject = await JSON.parse('{"Account":[{"password":"admin","login":true,"userID":"admin","databaseURL":"http://localhost:8095"}]}');
+        }catch(error){
+            console.error(error);
             console.log('Fail to read JSON')
         }
     }

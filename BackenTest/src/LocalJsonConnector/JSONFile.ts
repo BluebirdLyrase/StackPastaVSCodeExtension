@@ -31,6 +31,7 @@ protected async saveJSONFile(currentDirectoryPath:string,newStringObject:any){
 
     console.log(JSON.stringify(newStringObject));
 
+    
     fs.writeFile(currentDirectoryPath, JSON.stringify(newStringObject),  function(err) {
         if (err) {
             return console.error(err);

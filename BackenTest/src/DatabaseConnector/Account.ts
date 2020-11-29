@@ -33,18 +33,19 @@ export class Account extends LocalJsonList {
     }
 
     public async haveAccount(): Promise<boolean> {
-        var l = this.jsonObject.Account.lenght
+        await this.createJson();
+        // console.log(this.jsonObject);
+        const l = this.jsonObject.Account.lenght
         return (l != 0)
     }
 
     public async Login(userID:string,password:string,DatabaseURL:string): Promise<string> {
-        var result : string;
+        var result : string = this.error;
         this.DatabaseURL = DatabaseURL;
-        var json:any =  JSON.parse(
+        const json:any =  JSON.parse(
             '{"UserID":"'+ userID + '","Password" :"' + password + '"}');
 
-            var authenURL:string = this.DatabaseURL + "api/authen";
-            
+            const authenURL:string = this.DatabaseURL + "/api/authen"; 
             try {
                 console.log(authenURL);
                 const response = await axios.post(authenURL,json);
@@ -68,9 +69,37 @@ export class Account extends LocalJsonList {
     }
 
     private async setDatabase(){
-        var account:any ;
-        account = JSON.parse('{"Account":[{"password":"'+this.password+'","login":true,"userID":"'+this.userID+'","databaseURL":"'+this.DatabaseURL+'"}]}');
+        const account:any  = JSON.parse('{"Account":[{"password":"'+this.password+'","login":true,"userID":"'+this.userID+'","databaseURL":"'+this.DatabaseURL+'"}]}');
         this.saveJSONFile(this.filePath,account);
+    }
+
+    public async isLoggedIn(): Promise<boolean>{
+        await this.createJson();
+        var result:boolean = false;
+        if(this.haveAccount()){
+            try{
+                var userID = this.jsonObject.Account[0].userID;
+                var password = this.jsonObject.Account[0].password;
+                var databaseURL = this.jsonObject.Account[0].databaseURL;
+                // console.log(userID+password+databaseURL);
+                const json:any =  JSON.parse(
+                    '{"UserID":"'+ userID + '","Password" :"' + password + '"}');
+                    const authenURL:string = this.DatabaseURL + "/api/authen"; 
+                    const response = await axios.post(authenURL,json);
+                    if(response.data){  
+                        await super.checkfile();
+                        result = true 
+                    }
+
+
+                result = true
+            }catch{
+                console.log("Error logging in from isLoggedIn");
+                this.Logout();
+            }
+        }
+
+        return result;
     }
 
 
