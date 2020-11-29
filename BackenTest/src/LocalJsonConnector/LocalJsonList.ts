@@ -19,7 +19,7 @@ export class LocalJsonList extends JSONFile{
 		return this.jsonObject;
 	}
 
-    private async checkfile() {
+    protected async checkfile() {
 
         ////////////Create File if it does not exist/////////////////////////////////
         if (!fs.existsSync(this.directoryPath)) {
@@ -27,13 +27,19 @@ export class LocalJsonList extends JSONFile{
         }
 
         if (!fs.existsSync(this.filePath)) {
-            fs.writeFile(this.filePath, "{" + this.arrayName + ":[]}", function (err) {
+            try{
+            fs.writeFile(this.filePath, "{\"" + this.arrayName + "\":[]}", function (err) {
                 if (err) {
                     return console.error(err);
                 }
                 console.log("File created!");
             });
+            }catch{
+                console.log('file create fail')
+            }
         }
+
+        
 
     }
 
@@ -41,11 +47,19 @@ export class LocalJsonList extends JSONFile{
         super();
         this.filePath = path.join(this.directoryPath, filename + ".json");
         this.arrayName = filename;
-        this.checkfile();
+        this.createJson();
+        
+        
+    }
 
+    private async createJson(){
+        await this.checkfile();
+        try{
         var file = fs.readFileSync(this.filePath, 'utf-8');
         this.jsonObject = JSON.parse(file);
-
+        }catch{
+            console.log('Fail to read JSON')
+        }
     }
 
     public async delete(index: number) {

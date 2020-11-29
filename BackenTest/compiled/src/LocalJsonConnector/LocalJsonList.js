@@ -27,9 +27,7 @@ class LocalJsonList extends JSONFile_1.JSONFile {
         this.delConfrimMsg = "Are you sure you want to delete this?";
         this.filePath = path_1.default.join(this.directoryPath, filename + ".json");
         this.arrayName = filename;
-        this.checkfile();
-        var file = fs_1.default.readFileSync(this.filePath, 'utf-8');
-        this.jsonObject = JSON.parse(file);
+        this.createJson();
     }
     get getJsonObject() {
         return this.jsonObject;
@@ -41,12 +39,29 @@ class LocalJsonList extends JSONFile_1.JSONFile {
                 fs_1.default.mkdirSync(this.directoryPath);
             }
             if (!fs_1.default.existsSync(this.filePath)) {
-                fs_1.default.writeFile(this.filePath, "{" + this.arrayName + ":[]}", function (err) {
-                    if (err) {
-                        return console.error(err);
-                    }
-                    console.log("File created!");
-                });
+                try {
+                    fs_1.default.writeFile(this.filePath, "{\"" + this.arrayName + "\":[]}", function (err) {
+                        if (err) {
+                            return console.error(err);
+                        }
+                        console.log("File created!");
+                    });
+                }
+                catch (_a) {
+                    console.log('file create fail');
+                }
+            }
+        });
+    }
+    createJson() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.checkfile();
+            try {
+                var file = fs_1.default.readFileSync(this.filePath, 'utf-8');
+                this.jsonObject = JSON.parse(file);
+            }
+            catch (_a) {
+                console.log('Fail to read JSON');
             }
         });
     }

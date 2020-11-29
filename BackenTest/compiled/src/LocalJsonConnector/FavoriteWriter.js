@@ -33,6 +33,7 @@ class FavoriteWriter extends LocalJsonList_1.LocalJsonList {
             });
             if (isNotDuplicate) {
                 fav.push({ Site: site, Title: title, ID: id });
+                this.saveJSONFile(this.filePath, fav);
                 msg = "Succesfully added " + title + " to Favorite";
             }
             return msg;
