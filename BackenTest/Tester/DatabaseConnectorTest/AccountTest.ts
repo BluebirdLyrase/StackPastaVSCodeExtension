@@ -9,8 +9,10 @@ async function run() {
     // var q = await x.Logout()
     // console.log("what "+q)
 
-    // var w = await x.Login("admin","admin","http://localhost:8095/");
-    // console.log(w);
+    var w = await x.Login("admin","admin","http://localhost:8095");
+    console.log(w);
+    var c = await x.getDatabaseURL();
+    console.log(c);
 
     // var e = await x.Login("admwefwefin","admiq13124n","http://localhost:8095/");
     // console.log(e);
@@ -19,7 +21,8 @@ async function run() {
     // console.log(r);
 
     var t = await x.isLoggedIn();
-    console.log(t+x.getUserID);
+    var z = await x.getUserID();
+    console.log(z);
 
 }
 

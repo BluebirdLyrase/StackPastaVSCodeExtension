@@ -9,26 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Account_1 = require("../../src/DatabaseConnector/Account");
+const SearchingHistoryDatabaseWriter_1 = require("../../src/DatabaseConnector/SearchingHistoryDatabaseWriter");
 //tsc to compilr
 //node path to run
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
-        const x = new Account_1.Account();
-        // let x = new Account();
-        // var q = await x.Logout()
-        // console.log("what "+q)
-        var w = yield x.Login("admin", "admin", "http://localhost:8095");
-        console.log(w);
-        var c = yield x.getDatabaseURL();
-        console.log(c);
-        // var e = await x.Login("admwefwefin","admiq13124n","http://localhost:8095/");
-        // console.log(e);
-        // var r = await x.Login("admin","admin","http://localhowst:8095/qwqe1/wfq4gqgq34");
-        // console.log(r);
-        var t = yield x.isLoggedIn();
-        var z = yield x.getUserID();
-        console.log(z);
+        const x = new SearchingHistoryDatabaseWriter_1.SearchingHistoryDatabaseWriter();
+        var t = yield x.writeSearchingHistory("dd", "aa", "ss", "qq", "ww");
+        console.log(t);
     });
 }
 run();

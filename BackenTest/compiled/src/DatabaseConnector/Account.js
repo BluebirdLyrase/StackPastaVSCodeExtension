@@ -42,9 +42,10 @@ class Account extends LocalJsonList_1.LocalJsonList {
     haveAccount() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.createJson();
-            // console.log(this.jsonObject);
-            const l = this.jsonObject.Account.lenght;
-            return (l != 0);
+            // console.log(typeof this.jsonObject.Account[0]==='undefined');
+            const l = typeof this.jsonObject.Account[0] === 'undefined';
+            console.log("l is " + l);
+            return !l;
         });
     }
     Login(userID, password, DatabaseURL) {
@@ -81,7 +82,12 @@ class Account extends LocalJsonList_1.LocalJsonList {
     }
     setDatabase() {
         return __awaiter(this, void 0, void 0, function* () {
+            // const account:any = JSON.parse('{}');
             const account = JSON.parse('{"Account":[{"password":"' + this.password + '","login":true,"userID":"' + this.userID + '","databaseURL":"' + this.DatabaseURL + '"}]}');
+            // account.Account[0].passwrod = this.password;
+            // account.Account[0].login = true;
+            // account.Account[0].userID = this.userID;
+            // account.Account[0].databaseURL = this.DatabaseURL;
             this.saveJSONFile(this.filePath, account);
         });
     }
@@ -92,7 +98,9 @@ class Account extends LocalJsonList_1.LocalJsonList {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.createJson();
             var result = false;
-            if (this.haveAccount()) {
+            const haveAccount = yield this.haveAccount();
+            console.log('haveAccount' + haveAccount);
+            if (haveAccount) {
                 try {
                     this.userID = this.jsonObject.Account[0].userID;
                     this.password = this.jsonObject.Account[0].password;
@@ -115,8 +123,17 @@ class Account extends LocalJsonList_1.LocalJsonList {
             return result;
         });
     }
-    get getUserID() {
-        return this.userID;
+    getUserID() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.createJson();
+            return this.jsonObject.Account[0].userID;
+        });
+    }
+    getDatabaseURL() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.createJson();
+            return this.jsonObject.Account[0].databaseURL;
+        });
     }
 }
 exports.Account = Account;
