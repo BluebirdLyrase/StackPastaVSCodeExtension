@@ -9,23 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Account_1 = require("../../src/DatabaseConnector/Account");
-//tsc to compilr
-//node path to run
-function run() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const x = new Account_1.Account();
-        // let x = new Account();
-        // var q = await x.Logout()
-        // console.log("what "+q)
-        // var w = await x.Login("admin","admin","http://localhost:8095/");
-        // console.log(w);
-        // var e = await x.Login("admwefwefin","admiq13124n","http://localhost:8095/");
-        // console.log(e);
-        // var r = await x.Login("admin","admin","http://localhowst:8095/qwqe1/wfq4gqgq34");
-        // console.log(r);
-        var t = yield x.isLoggedIn();
-        console.log(t + x.getUserID);
-    });
+exports.SearchingHistoryDatabaseWriter = void 0;
+const Account_1 = require("./Account");
+class SearchingHistoryDatabaseWriter {
+    writeSearchingHistory(searchText, order, sort, site, tagged) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const account = new Account_1.Account();
+            var result;
+            // const datetime;
+            const userID = account.getUserID;
+            return result;
+        });
+    }
 }
-run();
+exports.SearchingHistoryDatabaseWriter = SearchingHistoryDatabaseWriter;

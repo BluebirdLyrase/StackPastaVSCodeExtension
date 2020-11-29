@@ -78,13 +78,13 @@ export class Account extends LocalJsonList {
         var result:boolean = false;
         if(this.haveAccount()){
             try{
-                var userID = this.jsonObject.Account[0].userID;
-                var password = this.jsonObject.Account[0].password;
-                var databaseURL = this.jsonObject.Account[0].databaseURL;
+                this.userID = this.jsonObject.Account[0].userID;
+                this.password = this.jsonObject.Account[0].password;
+                this.DatabaseURL = this.jsonObject.Account[0].databaseURL;
                 // console.log(userID+password+databaseURL);
                 const json:any =  JSON.parse(
-                    '{"UserID":"'+ userID + '","Password" :"' + password + '"}');
-                    const authenURL:string = databaseURL + "/api/authen"; 
+                    '{"UserID":"'+ this.userID + '","Password" :"' + this.password + '"}');
+                    const authenURL:string = this.DatabaseURL + "/api/authen"; 
                     const response = await axios.post(authenURL,json);
                     if(response.data){  
                         await super.checkfile();
@@ -100,5 +100,8 @@ export class Account extends LocalJsonList {
         return result;
     }
 
+    public get getUserID():string {
+        return this.userID;
+    }
 
 }

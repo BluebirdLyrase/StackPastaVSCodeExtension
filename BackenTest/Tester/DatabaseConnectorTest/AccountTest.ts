@@ -4,8 +4,8 @@ import {Account} from '../../src/DatabaseConnector/Account';
 //node path to run
 
 async function run() {
-
-    let x = new Account();
+    const x:Account = new Account();
+    // let x = new Account();
     // var q = await x.Logout()
     // console.log("what "+q)
 
@@ -19,7 +19,7 @@ async function run() {
     // console.log(r);
 
     var t = await x.isLoggedIn();
-    console.log(t);
+    console.log(t+x.getUserID);
 
 }
 

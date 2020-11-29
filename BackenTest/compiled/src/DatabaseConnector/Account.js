@@ -94,12 +94,12 @@ class Account extends LocalJsonList_1.LocalJsonList {
             var result = false;
             if (this.haveAccount()) {
                 try {
-                    var userID = this.jsonObject.Account[0].userID;
-                    var password = this.jsonObject.Account[0].password;
-                    var databaseURL = this.jsonObject.Account[0].databaseURL;
+                    this.userID = this.jsonObject.Account[0].userID;
+                    this.password = this.jsonObject.Account[0].password;
+                    this.DatabaseURL = this.jsonObject.Account[0].databaseURL;
                     // console.log(userID+password+databaseURL);
-                    const json = JSON.parse('{"UserID":"' + userID + '","Password" :"' + password + '"}');
-                    const authenURL = databaseURL + "/api/authen";
+                    const json = JSON.parse('{"UserID":"' + this.userID + '","Password" :"' + this.password + '"}');
+                    const authenURL = this.DatabaseURL + "/api/authen";
                     const response = yield axios_1.default.post(authenURL, json);
                     if (response.data) {
                         yield _super.checkfile.call(this);
@@ -114,6 +114,9 @@ class Account extends LocalJsonList_1.LocalJsonList {
             }
             return result;
         });
+    }
+    get getUserID() {
+        return this.userID;
     }
 }
 exports.Account = Account;
