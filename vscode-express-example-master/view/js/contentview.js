@@ -16,12 +16,12 @@ function ContentView(id, site) {
 
     $.get(url, function(data, status) {
         console.log(url);
-        HTMLBuilder(data);
+        HTMLBuilder(data,id);
     });
 
 }
 
-function HTMLBuilder(data) {
+function HTMLBuilder(data,id) {
 
     q = data.items[0];
 
@@ -98,7 +98,7 @@ function HTMLBuilder(data) {
                 "<h6>" + item.owner.display_name + "</h6></div>" +
 
                 "<div class='column'>Score: <a style='color: #f2af6f'>" +
-                item.score + "</a> <br> Tag : " + item.tags + "</div></div>" +
+                item.score + "</a> <br></div></div>" +
                 "<hr style=\" box-shadow: 0px 5px 5px black;\">"
 
             $("#contentview").append(answerOwner);

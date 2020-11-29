@@ -5,7 +5,8 @@
         "outDir": "out",
         "lib": ["ES2015","dom","es6"],
         "sourceMap": true,
-        "rootDir": "src"
+        "rootDir": "src",
+        "esModuleInterop":true
     },
     "exclude": [
         "node_modules",

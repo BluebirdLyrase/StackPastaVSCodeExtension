@@ -2,7 +2,9 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import {VSCExpress} from 'vscode-express';
+import { VSCExpress } from 'vscode-express';
+import { Account } from './DatabaseConnector/Account';
+import { SearchingHistoryDatabaseWriter } from './DatabaseConnector/SearchingHistoryDatabaseWriter';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -23,14 +25,23 @@ export function activate(context: vscode.ExtensionContext) {
         vscexpress.open('index.html', 'StackPasta', vscode.ViewColumn.Two);
     }));
 
-    //Pinned Question page
-    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.pinned', () => {
-        vscexpress.open('pinned.html', 'Pinned Question', vscode.ViewColumn.Two);
-    }));
-
     //Setting page
     context.subscriptions.push(vscode.commands.registerCommand('stackpasta.setting', () => {
         vscexpress.open('setting.html', 'Setting', vscode.ViewColumn.Two);
+    }));
+
+    //SearchingHistoryDatabaseWriter
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.SHDW', (searchText:string,order:string,sort:string,site:string,tagged:string) => {
+    const SHDW:SearchingHistoryDatabaseWriter = new SearchingHistoryDatabaseWriter();
+    var result = SHDW.writeSearchingHistory(searchText,order,sort,site,tagged);
+    console.log(result);
+    result.then(function(data){
+        var result:string = "fail";
+        if(data){
+            result = 'success'
+        }
+    vscode.window.showInformationMessage(result);
+    });
     }));
 
     //Use for close the tap
@@ -42,5 +53,5 @@ export function activate(context: vscode.ExtensionContext) {
 
 // this method is called when your extension is deactivated
 export function deactivate() {
-    
+
 }

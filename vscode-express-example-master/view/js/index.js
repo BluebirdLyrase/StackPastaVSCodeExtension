@@ -13,6 +13,8 @@ function searchformstack() {
     tagContent = $('#tags').val();
     site = $('#site').val();
 
+    command('stackpasta.SHDW',intitle,order,sort,site,tagContent);
+
     if (tagContent != "") {
         tagContent = "&tagged=" + tagContent;
     }
