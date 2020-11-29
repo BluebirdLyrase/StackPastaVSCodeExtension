@@ -16,17 +16,16 @@ function ContentView(id, site) {
 
     $.get(url, function(data, status) {
         console.log(url);
-        HTMLBuilder(data,id);
+        HTMLBuilder(data,id,site);
     });
 
 }
 
-function HTMLBuilder(data,id) {
-
+function HTMLBuilder(data,id,site) {
     q = data.items[0];
 
     var HTMLBody;
-
+    command('stackpasta.VHDW',id,q.tags,q.title,site);
     question = "<h4 style='margin-top:4px'>" +
         q.title + "</h4>" +
         q.body + "<hr>";

@@ -5,6 +5,7 @@ import * as vscode from 'vscode';
 import { VSCExpress } from 'vscode-express';
 import { Account } from './DatabaseConnector/Account';
 import { SearchingHistoryDatabaseWriter } from './DatabaseConnector/SearchingHistoryDatabaseWriter';
+import { ViewHistoryDatabaseWriter } from './DatabaseConnector/ViewHistoryDatabaseWriter';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -40,9 +41,23 @@ export function activate(context: vscode.ExtensionContext) {
         if(data){
             result = 'success'
         }
-    vscode.window.showInformationMessage(result);
+    // vscode.window.showInformationMessage(result);
     });
     }));
+
+        //ViewHistoryDatabaseWriter
+        context.subscriptions.push(vscode.commands.registerCommand('stackpasta.VHDW', (id:string,tags:string[],title:string,site:string) => {
+            const VHDW:ViewHistoryDatabaseWriter = new ViewHistoryDatabaseWriter();
+            var result = VHDW.writeViewHistory(id,tags,title,site);
+            console.log(result);
+            result.then(function(data){
+                var result:string = "fail";
+                if(data){
+                    result = 'success'
+                }
+            // vscode.window.showInformationMessage(result);
+            });
+            }));
 
     //Use for close the tap
     context.subscriptions.push(vscode.commands.registerCommand('extension.vscexpressclose', (path: string) => {
