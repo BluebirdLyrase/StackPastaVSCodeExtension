@@ -51,26 +51,6 @@ function search() {
   closeTab();
 }
 
-function favorite() {
-  command('stackpasta.favorite');
-  closeTab();
-}
-
-function history() {
-  command('stackpasta.history');
-  closeTab();
-}
-
-function offline() {
-  command('stackpasta.offline');
-  closeTab();
-}
-
-function pinned() {
-  command('stackpasta.pinned');
-  closeTab();
-}
-
 function setting() {
   command('stackpasta.setting');
   closeTab();

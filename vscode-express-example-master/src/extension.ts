@@ -31,33 +31,39 @@ export function activate(context: vscode.ExtensionContext) {
         vscexpress.open('setting.html', 'Setting', vscode.ViewColumn.Two);
     }));
 
-    //SearchingHistoryDatabaseWriter
-    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.SHDW', (searchText:string,order:string,sort:string,site:string,tagged:string) => {
-    const SHDW:SearchingHistoryDatabaseWriter = new SearchingHistoryDatabaseWriter();
-    var result = SHDW.writeSearchingHistory(searchText,order,sort,site,tagged);
-    console.log(result);
-    result.then(function(data){
-        var result:string = "fail";
-        if(data){
-            result = 'success'
-        }
-    // vscode.window.showInformationMessage(result);
-    });
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.NotFound', () => {
+        vscode.window.showInformationMessage("Con not find any result");
     }));
 
-        //ViewHistoryDatabaseWriter
-        context.subscriptions.push(vscode.commands.registerCommand('stackpasta.VHDW', (id:string,tags:string[],title:string,site:string) => {
-            const VHDW:ViewHistoryDatabaseWriter = new ViewHistoryDatabaseWriter();
-            var result = VHDW.writeViewHistory(id,tags,title,site);
-            console.log(result);
-            result.then(function(data){
-                var result:string = "fail";
-                if(data){
-                    result = 'success'
-                }
+    
+
+    //SearchingHistoryDatabaseWriter
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.SHDW', (searchText: string, order: string, sort: string, site: string, tagged: string) => {
+        const SHDW: SearchingHistoryDatabaseWriter = new SearchingHistoryDatabaseWriter();
+        var result = SHDW.writeSearchingHistory(searchText, order, sort, site, tagged);
+        console.log(result);
+        result.then(function (data) {
+            var result: string = "fail";
+            if (data) {
+                result = 'success'
+            }
             // vscode.window.showInformationMessage(result);
-            });
-            }));
+        });
+    }));
+
+    //ViewHistoryDatabaseWriter
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.VHDW', (id: string, tags: string[], title: string, site: string) => {
+        const VHDW: ViewHistoryDatabaseWriter = new ViewHistoryDatabaseWriter();
+        var result = VHDW.writeViewHistory(id, tags, title, site);
+        console.log(result);
+        result.then(function (data) {
+            var result: string = "fail";
+            if (data) {
+                result = 'success'
+            }
+            // vscode.window.showInformationMessage(result);
+        });
+    }));
 
     //Use for close the tap
     context.subscriptions.push(vscode.commands.registerCommand('extension.vscexpressclose', (path: string) => {
