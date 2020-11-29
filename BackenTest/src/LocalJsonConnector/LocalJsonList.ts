@@ -62,21 +62,21 @@ export class LocalJsonList extends JSONFile{
         }
     }
 
-    public async delete(index: number) {
-        var item = this.jsonObject[this.arrayName];
-        this.jsonObject[this.arrayName].splice(index, 1);
-        console.log('deleted item '+item[index]);
-        await this.saveJSONFile(this.filePath,this.jsonObject);
-    }
+    // public async delete(index: number) {
+    //     var item = this.jsonObject[this.arrayName];
+    //     this.jsonObject[this.arrayName].splice(index, 1);
+    //     console.log('deleted item '+item[index]);
+    //     await this.saveJSONFile(this.filePath,this.jsonObject);
+    // }
 
-    public async clear() {
-        await this.deleteFile(this.filePath);
-    }
+    // public async clear() {
+    //     await this.deleteFile(this.filePath);
+    // }
 
-    public async getSize(): Promise<number> {
-        var stats = fs.statSync(this.filePath)
-        var fileSizeInBytes = stats.size;
-        return fileSizeInBytes;
-    }
+    // public async getSize(): Promise<number> {
+    //     var stats = fs.statSync(this.filePath)
+    //     var fileSizeInBytes = stats.size;
+    //     return fileSizeInBytes;
+    // }
 
 }
