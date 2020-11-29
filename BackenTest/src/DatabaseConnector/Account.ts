@@ -84,16 +84,14 @@ export class Account extends LocalJsonList {
                 // console.log(userID+password+databaseURL);
                 const json:any =  JSON.parse(
                     '{"UserID":"'+ userID + '","Password" :"' + password + '"}');
-                    const authenURL:string = this.DatabaseURL + "/api/authen"; 
+                    const authenURL:string = databaseURL + "/api/authen"; 
                     const response = await axios.post(authenURL,json);
                     if(response.data){  
                         await super.checkfile();
                         result = true 
                     }
-
-
-                result = true
-            }catch{
+            }catch(error){
+                console.log(error);
                 console.log("Error logging in from isLoggedIn");
                 this.Logout();
             }

@@ -99,15 +99,15 @@ class Account extends LocalJsonList_1.LocalJsonList {
                     var databaseURL = this.jsonObject.Account[0].databaseURL;
                     // console.log(userID+password+databaseURL);
                     const json = JSON.parse('{"UserID":"' + userID + '","Password" :"' + password + '"}');
-                    const authenURL = this.DatabaseURL + "/api/authen";
+                    const authenURL = databaseURL + "/api/authen";
                     const response = yield axios_1.default.post(authenURL, json);
                     if (response.data) {
                         yield _super.checkfile.call(this);
                         result = true;
                     }
-                    result = true;
                 }
-                catch (_a) {
+                catch (error) {
+                    console.log(error);
                     console.log("Error logging in from isLoggedIn");
                     this.Logout();
                 }

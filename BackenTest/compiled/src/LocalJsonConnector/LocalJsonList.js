@@ -61,7 +61,7 @@ class LocalJsonList extends JSONFile_1.JSONFile {
                 // console.log('path:'+this.filePath);
                 // console.log(file);
                 this.jsonObject = require(this.filePath);
-                console.log(this.jsonObject);
+                // console.log(this.jsonObject);
                 // this.jsonObject = await JSON.parse(file);
                 // this.jsonObject = await JSON.parse('{"Account":[{"password":"admin","login":true,"userID":"admin","databaseURL":"http://localhost:8095"}]}');
             }
