@@ -13,7 +13,7 @@ import { StatusBarAlignment, window } from 'vscode';
 export function activate(context: vscode.ExtensionContext) {
 
     const statusBar = window.createStatusBarItem(StatusBarAlignment.Right, 0)
-    statusBar.text = `Rertart`
+    statusBar.text = `Restart`
     statusBar.command = `workbench.action.reloadWindow`
     statusBar.tooltip = `Restart IDE`
     statusBar.show()
