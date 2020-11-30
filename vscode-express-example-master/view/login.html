@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/setting.css">
+
+
+</head>
+
+<body class="allbody">
+
+    <!-- navbar -->
+    <!-- <div class="topnav">
+        <a onclick="index()" href="index.html">Search</a>
+        <a onclick="" class="active" href="setting.html">Login</a>
+    </div> -->
+    <!-- end of navbar -->
+
+    <!-- Search form -->
+    <div class = "mt-20 row box">
+
+        <h3 class="text-light">Log-in to Stack Pasta Admin Database</h3>
+        
+            <input type="text" class="inputArea mt-20 col-12" id="userID" placeholder="UserID">
+
+            <input type="password" class="inputArea mt-20 col-12" id="password" placeholder="Password">
+    
+            <input type="text" class="inputArea mt-20 col-12" id="DatabaseURL" placeholder="Database URL">
+
+            <button class="btn-secondary mt-20 mybtn col-12" onclick="Login()">Log-in</button>
+    </div>
+    
+
+    <script src="js/jquery-3.5.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

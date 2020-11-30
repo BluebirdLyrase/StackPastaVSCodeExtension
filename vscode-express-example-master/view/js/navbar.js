@@ -44,15 +44,3 @@ window.addEventListener('message', event => {
 //   command('extension.sayHello');
 // }
 
-
-
-function search() {
-  command('stackpasta.search');
-  closeTab();
-}
-
-function setting() {
-  command('stackpasta.setting');
-  closeTab();
-}
-

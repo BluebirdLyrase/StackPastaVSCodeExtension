@@ -1,6 +1,4 @@
-function closeTab() {
-    command('extension.vscexpressclose', 'index.html');
-}
+
 
 function searchformstack() {
 
@@ -57,3 +55,14 @@ function createSiteList() {
     });
 }
 createSiteList();
+
+function back() {
+    $("#Content").empty();
+    $("#contentview").empty();
+    $("#main").removeClass("d-none");
+}
+
+function setting() {
+    command('stackpasta.setting');
+    command('extension.vscexpressclose', 'index.html');
+  }

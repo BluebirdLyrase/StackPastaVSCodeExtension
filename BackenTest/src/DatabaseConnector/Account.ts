@@ -10,7 +10,7 @@ export class Account extends LocalJsonList {
     private DatabaseURL: string;
     private userID: string;
     private password: string;
-    private success = "Successfully logged in";
+    private success = "Successfully Log-in";
     private wrong = "Incorrect username or password";
     private error = "Server unavailable";
     private connectionstatus: string;
@@ -19,12 +19,13 @@ export class Account extends LocalJsonList {
 
         var result : string;
         if (this.haveAccount()) {
+            await this.createJson();
             var newfile = this.jsonObject;
             newfile.Account[0].login = false;
             console.log('logout');
             this.saveJSONFile(this.filePath, newfile);
-            console.log(this.filePath + "::" + newfile.Account[0].login);
-            result = "Logout Succeddfully";
+            // console.log(this.filePath + "::" + newfile.Account[0].login);
+            result = "Sucessfully Log-out";
         } else {
             result = "You have to Login inorder to Logout";
         }
@@ -48,10 +49,10 @@ export class Account extends LocalJsonList {
 
             const authenURL:string = this.DatabaseURL + "/api/authen"; 
             try {
-                console.log(authenURL);
+                // console.log(authenURL);
                 const response = await axios.post(authenURL,json);
                 // console.log(response);
-                console.log("response is = " + response.data);
+                // console.log("response is = " + response.data);
                 if(response.data){  
                     await super.checkfile();
                     result = this.success;
@@ -86,6 +87,9 @@ export class Account extends LocalJsonList {
         console.log('haveAccount'+haveAccount);
         if(haveAccount){
             try{
+                const login:boolean = this.jsonObject.Account[0].login;
+                // console.log("this.jsonObject.Account[0].login = "+login)
+                    if(login){
                 this.userID = this.jsonObject.Account[0].userID;
                 this.password = this.jsonObject.Account[0].password;
                 this.DatabaseURL = this.jsonObject.Account[0].databaseURL;
@@ -98,6 +102,9 @@ export class Account extends LocalJsonList {
                         await super.checkfile();
                         result = true 
                     }
+                }else{
+                    result = false;
+                }
             }catch(error){
                 console.log(error);
                 console.log("Error logging in from isLoggedIn");

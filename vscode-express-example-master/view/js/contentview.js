@@ -111,14 +111,6 @@ function HTMLBuilder(data,id,site) {
 
 }
 
-
-
-function back() {
-    $("#Content").empty();
-    $("#contentview").empty();
-    $("#main").removeClass("d-none");
-}
-
 function showComment(id) {
     console.log(id)
     if (id != 'comment') {

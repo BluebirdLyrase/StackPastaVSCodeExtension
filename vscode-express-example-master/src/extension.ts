@@ -6,10 +6,29 @@ import { VSCExpress } from 'vscode-express';
 import { Account } from './DatabaseConnector/Account';
 import { SearchingHistoryDatabaseWriter } from './DatabaseConnector/SearchingHistoryDatabaseWriter';
 import { ViewHistoryDatabaseWriter } from './DatabaseConnector/ViewHistoryDatabaseWriter';
+import { StatusBarAlignment, window } from 'vscode';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+
+    const statusBar = window.createStatusBarItem(StatusBarAlignment.Right, 0)
+    statusBar.text = `Rertart`
+    statusBar.command = `workbench.action.reloadWindow`
+    statusBar.tooltip = `Restart IDE`
+    statusBar.show()
+
+    const statusBar1 = window.createStatusBarItem(StatusBarAlignment.Right, 1)
+    statusBar1.text = `Login`
+    statusBar1.command = `stackpasta.setting`
+    statusBar1.tooltip = `login to stack pasta admin database`
+    statusBar1.show()
+
+    const statusBar2 = window.createStatusBarItem(StatusBarAlignment.Right, 2)
+    statusBar2.text = `Search`
+    statusBar2.command = `stackpasta.search`
+    statusBar2.tooltip = `Seach from Stack Exchange`
+    statusBar2.show()
 
     // Use the console to output diagnostic information (console.log) and errors (console.error)
     // This line of code will only be executed once when your extension is activated
@@ -28,14 +47,56 @@ export function activate(context: vscode.ExtensionContext) {
 
     //Setting page
     context.subscriptions.push(vscode.commands.registerCommand('stackpasta.setting', () => {
-        vscexpress.open('setting.html', 'Setting', vscode.ViewColumn.Two);
+        const account: Account = new Account();
+        let isLoggedIn = account.isLoggedIn()
+        isLoggedIn.then(function (data: boolean) {
+            // vscode.window.showInformationMessage(data.toString());
+            if (data) {
+                vscexpress.open('logout.html', 'Logout', vscode.ViewColumn.Two);
+            } else {
+                vscexpress.open('login.html', 'Login', vscode.ViewColumn.Two);
+            }
+        });
+
+    }));
+
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.logout', () => {
+        try {
+            const account: Account = new Account();
+            const logout = account.Logout();
+            logout.then(function (data: string) {
+                vscode.window.showInformationMessage(data);
+                if(data === "Sucessfully Log-out"){
+                    vscexpress.open('login.html', 'Login', vscode.ViewColumn.Two);
+                    vscexpress.close('logout.html');
+                }
+            });
+        } catch (error) {
+            vscode.window.showInformationMessage("ERROR IN LOGOUT : " + error);
+        }
+    }));
+
+    context.subscriptions.push(vscode.commands.registerCommand('stackpasta.login', (userID: string, password: string, databaseURL: string) => {
+        const account: Account = new Account();
+        // vscode.window.showInformationMessage(userID,password,databaseURL);
+        const login = account.Login(userID,password,databaseURL);
+        login.then(function (data: string) {
+            vscode.window.showInformationMessage(data);
+            if(data === "Successfully Log-in"){
+                vscode.commands.executeCommand('workbench.action.reloadWindow');
+                // vscexpress.open('logout.html', 'Login', vscode.ViewColumn.Two);
+                // vscexpress.close('login.html');
+                
+            }
+        });
+
     }));
 
     context.subscriptions.push(vscode.commands.registerCommand('stackpasta.NotFound', () => {
         vscode.window.showInformationMessage("Con not find any result");
     }));
 
-    
+
 
     //SearchingHistoryDatabaseWriter
     context.subscriptions.push(vscode.commands.registerCommand('stackpasta.SHDW', (searchText: string, order: string, sort: string, site: string, tagged: string) => {
@@ -70,7 +131,6 @@ export function activate(context: vscode.ExtensionContext) {
         vscexpress.close(path);
     }));
 }
-
 
 // this method is called when your extension is deactivated
 export function deactivate() {
