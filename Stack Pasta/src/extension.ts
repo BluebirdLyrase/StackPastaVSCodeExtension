@@ -93,7 +93,7 @@ export function activate(context: vscode.ExtensionContext) {
     }));
 
     context.subscriptions.push(vscode.commands.registerCommand('stackpasta.NotFound', () => {
-        vscode.window.showInformationMessage("Con not find any result");
+        vscode.window.showInformationMessage("Can not find any result");
     }));
 
 
